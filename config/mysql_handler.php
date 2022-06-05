@@ -10,9 +10,5 @@
     }
 
     @mysqli_select_db($con, $dbname) or die( "Unable to connect to the database: $dbname");
-    /*if (!$con)
-        {
-            die('Could not connect: ' . mysqli_error($con));
-        }*/
 
 ?>

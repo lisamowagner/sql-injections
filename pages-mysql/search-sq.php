@@ -74,12 +74,15 @@
                     
                     if(isset($_GET['submit']) && strlen($_GET['contentsearch'])){
                         $contentSearch=$_GET['contentsearch'];
+                        /*Hier kann eine eigene Datenbankabfrage verwendet werden. Achtung! unter config/db_settings.php die Zugangsdaten anpassen.*/
                         $sql = "SELECT * FROM personalData JOIN businessData ON personalData.personalDataID = businessData.businessID WHERE businessName LIKE '%".$contentSearch."%'";
+                        /*Hier wird die Query ausgeführt. Achtung! $result wird nicht validiert (z.B. über mysqli_real_escape_string). Dadurch ist die
+                        SQL Injektion erst möglich*/
                         $result = mysqli_query($con, $sql);
                         $count = mysqli_num_rows($result);
 						if( $count != 0 ){
 		  				while($content = mysqli_fetch_array($result)){
-
+                            /*Passe hier die Ausgabe deiner Felder an.*/
 		  		            echo "<p>".$content["businessName"]." | ".$content["addressCity"]." | ".$content["firstName"]. ' ' . $content["lastName"]." | ".$content["emailAddress"]."</p>";
 						}
 
