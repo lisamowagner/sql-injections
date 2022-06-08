@@ -75,13 +75,25 @@
                     if(isset($_GET['submit']) && strlen($_GET['contentsearch'])){
                         $contentSearch=$_GET['contentsearch'];
                         $sql = "SELECT * FROM personalData JOIN businessData ON personalData.personalDataID = businessData.businessID WHERE businessName LIKE '%".$contentSearch."%'";
-                        $result = mysqli_query($con, $sql);
-                        $count = mysqli_num_rows($result);
+                        $result = pg_query($con, $sql);
+                        $count = pg_num_rows($result);
 						if( $count != 0 ){
-		  				while($content = mysqli_fetch_array($result)){
+		  				while($content = pg_fetch_array($result)){
 
-		  		            echo "<p>".$content["businessName"]." | ".$content["addressCity"]." | ".$content["firstName"]. ' ' . $content["lastName"]." | ".$content["emailAddress"]."</p>";
-						}
+		  		            // echo "<p>".$content["businessName"]." | ".$content["addressCity"]." | ".$content["firstName"]. ' ' . $content["lastName"]." | ".$content["emailAddress"]."</p>";
+						
+                            if(isset($content['businessname'])) :
+                                echo $content["businessname"];
+                                echo $content["addresscity"];
+                                echo $content["firstname"].' '.$content["lastname"];
+                                echo $content["emailaddress"];
+                            else :
+                                foreach($content as $content){
+                                    echo $content;
+                                }
+                            endif;
+
+                        }
 
                         }else {		
 							echo '<p>Nothing found</p>';

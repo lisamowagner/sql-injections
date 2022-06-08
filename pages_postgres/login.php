@@ -6,8 +6,8 @@
 	    $username=$_POST['username'];
 	    $pwd=sha1($_POST['passwd']);
 	    $sql="SELECT * FROM personalData LEFT JOIN userPassword ON userPassword.accountID = personalData.accountID WHERE userPassword.passwordHash = '$pwd' AND personalData.emailAddress = '$username';";
-	    $result=mysqli_query($con, $sql);
-	    $count=mysqli_num_rows($result);
+	    $result=pg_query($con, $sql);
+	    $count=pg_num_rows($result);
 		$sSuccessMsg = ($count>0?
 			"<div class=\"uk-width-1-1 uk-padding-small uk-text-center uk-text-emphasis uk-background-green\"><span class=\"uk-icon uk-margin-small-right\" uk-icon=\"icon: check\">
             </span>Login successful.</div>":
