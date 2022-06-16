@@ -1,5 +1,5 @@
 <?php
-	require_once(dirname(dirname(__FILE__)) . '/config/mysql_handler.php');              
+	require_once(dirname(dirname(__FILE__)) . '/config/postgres_handler.php');              
 ?>
 
 
@@ -11,7 +11,7 @@
         <meta name="" content="width=device-width, initial-scale=1">
         <link href="favicon.png" rel="icon" />
         <link rel="stylesheet" href="/css/uikit.css"/>
-        <link href="css/styles.css" rel="stylesheet">
+        <!-- <link href="css/styles.css" rel="stylesheet"> -->
     </head>
     <body>
 
@@ -21,14 +21,7 @@
                     <ul class="uk-navbar-nav">
                         <li><a href="../index.html">HOME</a></li>
                         <li><a href="login.php">LOGIN</a></li>
-                        <li class="uk-active"><a href="#">SEARCH</a>
-                            <div class="uk-navbar-dropdown uk-width-medium">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="search-sq.php">SEARCH SQLi</a></li>
-                                    <li><a href="search-mq.php">SEARCH SQLi MULTIQUERY</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                        <li class="uk-active"><a href="#">SEARCH</a></li>
                         <li><a href="../knowledge_base/index.html" target="_blank">KNOWLEDGE BASE</a></li>
                     </ul>
             
@@ -37,7 +30,7 @@
 
             <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-small">
                     <h3 class="uk-card-title uk-text-center">💉Search</h3>
-                        <form method="GET" action="search-sq.php" >
+                        <form method="GET" action="search.php" >
                             <div class="uk-margin">
                                  <div class="uk-inline uk-width-1-1">
                                             <span class="uk-form-icon" uk-icon="icon: search"></span>
@@ -83,9 +76,9 @@
 		  		            // echo "<p>".$content["businessName"]." | ".$content["addressCity"]." | ".$content["firstName"]. ' ' . $content["lastName"]." | ".$content["emailAddress"]."</p>";
 						
                             if(isset($content['businessname'])) :
-                                echo $content["businessname"];
-                                echo $content["addresscity"];
-                                echo $content["firstname"].' '.$content["lastname"];
+                                echo $content["businessname"]." | ";
+                                echo $content["addresscity"]." | ";
+                                echo $content["firstname"].' '.$content["lastname"]." | ";
                                 echo $content["emailaddress"];
                             else :
                                 foreach($content as $content){

@@ -1,5 +1,5 @@
 <?php
-	require_once(dirname(dirname(__FILE__)) . '/config/mysql_handler.php');	
+	require_once(dirname(dirname(__FILE__)) . '/config/postgres_handler.php');	
 	$sSuccessMsg = "<div class=\"uk-width-1-1 uk-text-center\"><span class=\"uk-icon uk-margin-small-right\" uk-icon=\"icon: warning\">
                     </span>You are not logged in.</div>";
 	if(isset($_POST['submit'])) {
@@ -25,7 +25,7 @@
         <meta name="" content="width=device-width, initial-scale=1">
         <link href="favicon.png" rel="icon" />
         <link rel="stylesheet" href="/css/uikit.css"/>
-        <link href="css/styles.css" rel="stylesheet">
+        <!-- <link href="css/styles.css" rel="stylesheet"> -->
     </head>
     <body>
 
@@ -35,14 +35,7 @@
                     <ul class="uk-navbar-nav">
                         <li><a href="../index.html">HOME</a></li>
                         <li class="uk-active"><a href="#">LOGIN</a></li>
-                        <li><a href="#">SEARCH</a>
-                            <div class="uk-navbar-dropdown uk-width-medium">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="search-sq.php">SEARCH SQLi</a></li>
-                                    <li><a href="search-mq.php">SEARCH SQLi MULTIQUERY</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                        <li><a href="search.php">SEARCH</a></li>
                         <li><a href="../knowledge_base/index.html" target="_blank">KNOWLEDGE BASE</a></li>
                     </ul>
             
