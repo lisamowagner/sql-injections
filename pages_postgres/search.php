@@ -71,8 +71,6 @@
                         $count = pg_num_rows($result);
 						if( $count != 0 ){
 		  				while($content = pg_fetch_array($result)){
-
-		  		            // echo "<p>".$content["businessName"]." | ".$content["addressCity"]." | ".$content["firstName"]. ' ' . $content["lastName"]." | ".$content["emailAddress"]."</p>";
 						
                             if(isset($content['businessname'])) :
                                 echo $content["businessname"]." | ";
