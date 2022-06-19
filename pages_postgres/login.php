@@ -24,7 +24,7 @@
         <meta charset="UTF-8">
         <meta name="" content="width=device-width, initial-scale=1">
         <link href="favicon.png" rel="icon" />
-        <link rel="stylesheet" href="css/uikit.css"/>
+        <link rel="stylesheet" href="/sql-injections-hh1/css/uikit.css"/>
     </head>
     <body>
 
