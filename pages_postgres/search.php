@@ -10,8 +10,7 @@
         <meta charset="UTF-8">
         <meta name="" content="width=device-width, initial-scale=1">
         <link href="favicon.png" rel="icon" />
-        <link rel="stylesheet" href="/css/uikit.css"/>
-        <!-- <link href="css/styles.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="css/uikit.css"/>
     </head>
     <body>
 
@@ -67,7 +66,7 @@
                     
                     if(isset($_GET['submit']) && strlen($_GET['contentsearch'])){
                         $contentSearch=$_GET['contentsearch'];
-                        $sql = "SELECT * FROM personalData JOIN businessData ON personalData.personalDataID = businessData.businessID WHERE businessName LIKE '%".$contentSearch."%'";
+                        $sql = "SELECT * FROM personalData JOIN businessData ON personalData.personalDataID = businessData.businessID WHERE LOWER (businessName) LIKE '%".$contentSearch."%'";
                         $result = pg_query($con, $sql);
                         $count = pg_num_rows($result);
 						if( $count != 0 ){

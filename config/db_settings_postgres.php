@@ -1,5 +1,5 @@
 <?php
-    //Customize Settings below to connect to your database
+    //Customize Settings below to connect to your local database
     $dbuser = 'admin'; //PostgreSQL database username
     $dbpass = 'admin'; //PostgreSQL database password
     $dbname = 'HH11';  //PostgreSQL database name
