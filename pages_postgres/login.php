@@ -24,8 +24,7 @@
         <meta charset="UTF-8">
         <meta name="" content="width=device-width, initial-scale=1">
         <link href="favicon.png" rel="icon" />
-        <link rel="stylesheet" href="/css/uikit.css"/>
-        <!-- <link href="css/styles.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="css/uikit.css"/>
     </head>
     <body>
 
